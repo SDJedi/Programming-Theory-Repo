@@ -1,11 +1,8 @@
-using UnityEngine;
-
+//Example of Inheritance
 public class Sphere : Shape
 {
-    public override void HandleShapeClicked()
+    protected override void HandleShapeClicked() //Example of Polymorphism
     {
-        Debug.Log("Hi! my name is " + Name + ". My assigned color is: " + this.Color.ToString());
-
-        ChangeShapeColor(this.Color);
+        ToggleColor();
     }
 }

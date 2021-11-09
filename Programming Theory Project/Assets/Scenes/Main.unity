@@ -155,8 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6c02b55f07d3e42aa4da60ce80b996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_name: Bob
-  m_color: {r: 0.2265538, g: 1, b: 0, a: 0}
+  customColor: {r: 0.43653068, g: 0.990566, b: 0.051397298, a: 0}
 --- !u!135 &440753411
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -425,6 +424,7 @@ GameObject:
   - component: {fileID: 1548364869}
   - component: {fileID: 1548364868}
   - component: {fileID: 1548364867}
+  - component: {fileID: 1548364871}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -442,7 +442,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
+  m_Radius: 0.88
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
@@ -511,6 +511,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1548364871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548364866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e49db83af05e284b9b144fe88d9f343, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customColor: {r: 0, g: 0.000013450407, b: 0.6132076, a: 0}
 --- !u!1 &1866069192
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,8 +536,8 @@ GameObject:
   - component: {fileID: 1866069195}
   - component: {fileID: 1866069194}
   - component: {fileID: 1866069193}
-  - component: {fileID: 1866069197}
   - component: {fileID: 1866069198}
+  - component: {fileID: 1866069199}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -610,20 +623,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1866069197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1866069192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6405b3d646e8f142837f94e2379f08b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_name: Sue
-  m_color: {r: 0.9716981, g: 0.050418302, b: 0.79342824, a: 0}
 --- !u!95 &1866069198
 Animator:
   serializedVersion: 4
@@ -644,3 +643,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1866069199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866069192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6405b3d646e8f142837f94e2379f08b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customColor: {r: 0, g: 0, b: 0, a: 0}

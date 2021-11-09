@@ -1,33 +1,34 @@
 using System.Collections;
 using UnityEngine;
 
+//Example of Inheritance
 public class Cube : Shape
 {
     Animator anim;
     bool dancing;
+
 
     void Start()
     {
         anim = GetComponent<Animator>();
     }
 
-    public override void HandleShapeClicked()
+    protected override void HandleShapeClicked() //Example of Polymorphism
     {
         if (!dancing)
         {
             StartCoroutine("DanceAndChangeColor");
         }
-
     }
 
     IEnumerator DanceAndChangeColor()
     {
         dancing = true;
         anim.ResetTrigger("AnimTrig");
-        ChangeShapeColor(this.Color);
+        ChangeColor(CustomColor);
         anim.SetTrigger("AnimTrig");
         yield return new WaitForSeconds(1.1f);
-        ChangeShapeColor(Color.white);
+        ChangeColor(DefaultColor);
         dancing = false;
     }
 }

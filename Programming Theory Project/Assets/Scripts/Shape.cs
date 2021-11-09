@@ -1,15 +1,35 @@
 using UnityEngine;
+//Goal: Demonstrate understanding of the pillars of OOP: 
+//Abstraction, Inheritance, Polymorphism, and Encapsulation
 
+//Shape is the base class from which specific shape classes are derrived.
+//includes methods to change the shape's color, and to toggle between custom and default colors.
+//Update() monitors for user clicks; each child class must define for itself what happens when clicked.
 public abstract class Shape : MonoBehaviour
 {
-    [SerializeField] string m_name;
-    [SerializeField] Color m_color;
+    [SerializeField] Color customColor; //assign in inspector if desired
 
-    public string Name { get { return m_name; } }
-    public Color Color { get { return m_color; } }
+    MeshRenderer meshRenderer;
+    Color defaultColor; //example of using Encapsulation to protect data | accesible through a getter
+
+    public Color CustomColor { get { return customColor; } }
+    public Color DefaultColor { get { return defaultColor; } }
 
 
-    void Update()
+    void Awake()
+    {
+        //initialize variables
+        meshRenderer = gameObject.GetComponent<MeshRenderer>();
+        defaultColor = meshRenderer.materials[0].color;
+    }
+
+    protected virtual void Update()
+    {
+        CheckForUserInput(); //example of Abstraction
+    }
+
+    //look for left-clicks and call HandleShapeClicked() if this.gameObject was clicked
+    void CheckForUserInput()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -17,7 +37,7 @@ public abstract class Shape : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.transform == gameObject.transform)
+                if (hit.transform.gameObject == gameObject)
                 {
                     HandleShapeClicked();
                 }
@@ -25,14 +45,22 @@ public abstract class Shape : MonoBehaviour
         }
     }
 
-    protected void ChangeShapeColor(Color color)
+    protected void ChangeColor(Color color)
     {
-        MeshRenderer mr = gameObject.GetComponent<MeshRenderer>();
-        if (mr != null)
+        meshRenderer.materials[0].color = color;
+    }
+
+    protected void ToggleColor()
+    {
+        if (meshRenderer.materials[0].color == CustomColor)
         {
-            mr.materials[0].color = color;
+            ChangeColor(defaultColor);
+        }
+        else
+        {
+            ChangeColor(CustomColor);
         }
     }
 
-    public abstract void HandleShapeClicked();
+    protected abstract void HandleShapeClicked();
 }

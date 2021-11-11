@@ -11,7 +11,6 @@ public class Cylinder : Shape
         base.Update();
         if (isRotating)
         {
-            Debug.Log("here? " + transform);
             transform.Rotate(0, 0, -0.5f, Space.World);
         }
     }

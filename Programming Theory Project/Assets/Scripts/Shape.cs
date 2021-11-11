@@ -7,10 +7,10 @@ using UnityEngine;
 //Update() monitors for user clicks; each child class must define for itself what happens when clicked.
 public abstract class Shape : MonoBehaviour
 {
-    [SerializeField] Color customColor; //assign in inspector if desired
+    [SerializeField] Color customColor; //assign in inspector
 
     MeshRenderer meshRenderer;
-    Color defaultColor; //example of using Encapsulation to protect data | accesible through a getter
+    Color defaultColor; //example of using Encapsulation to protect data | accessible through a getter
 
     public Color CustomColor { get { return customColor; } }
     public Color DefaultColor { get { return defaultColor; } }
